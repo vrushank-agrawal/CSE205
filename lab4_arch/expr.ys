@@ -1,0 +1,21 @@
+# Name: Vrushank Agrawal
+# id  : vrushank.agrawal
+
+  mrmovq x, %rax
+  rrmovq %rax, %rcx
+  irmovq $7, %rbx
+  subq   %rbx, %rcx
+  jl     Ltrue
+  irmovq $2, %rbx
+  subq   %rbx, %rax
+  jmp    Lend
+Ltrue:
+  irmovq $2, %rbx
+  addq   %rbx, %rax
+Lend:
+  rmmovq %rax, y
+  halt
+
+.pos 0x100
+x: .quad 0x0c
+y: .quad 0x00
